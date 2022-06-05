@@ -12,29 +12,6 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-/*
-
-// For your version to work (restart button) you have to uncomment this block of code and comment the teacher block
-
-// Starting conditions
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
-
-const scores = [0, 0]; // This scores are the big ones not the current score.The acumulating ones
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
-
-*/
-
-// Teacher version of implementing restart button functionality
-
-// let scores;
-// let currentScore;
-// let activePlayer;
-// let playing;
-
 // Starting conditions
 
 let scores, currentScore, activePlayer, playing;
@@ -68,34 +45,6 @@ const switchPlayer = function () {
   player1El.classList.toggle('player--active');
 };
 
-/*
-// My solution to make the restart button work
-
-const restart = function () {
-  // Resetting the scores
-  score0El.textContent = 0;
-  score1El.textContent = 0;
-  current0El.textContent = 0;
-  current1El.textContent = 0;
-  currentScore = 0;
-  scores[0] = 0;
-  scores[1] = 0;
-  //Removing the Winner class
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--winner');
-  // Adding active player
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.add('player--active');
-  // Hiding the dice
-  diceEl.classList.add('hidden');
-  // Setting the game to true again.
-  playing = true;
-};
-
-*/
-
 // Rolling dice functionality
 
 btnRoll.addEventListener('click', function () {
@@ -116,12 +65,6 @@ btnRoll.addEventListener('click', function () {
     } else {
       //Switch to next player
       switchPlayer();
-      //We moved this code to an individual function. like this we can reuse it everytime we need whitout repeating the code.
-      // document.getElementById(`current--${activePlayer}`).textContent = 0;
-      // currentScore = 0;
-      // activePlayer = activePlayer === 0 ? 1 : 0;
-      // player0El.classList.toggle('player--active');
-      // player1El.classList.toggle('player--active');
     }
   }
 });
@@ -151,14 +94,5 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
-
-/*
-
-// My solution to make the restart button work
-btnNew.addEventListener('click', restart);
-
-*/
-
-// Teacher version of implementing restart button functionality
 
 btnNew.addEventListener('click', init);
